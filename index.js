@@ -1,6 +1,7 @@
 // Imports the inquirer package
 const inquirer = require("inquirer");
 
+// Import files
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -139,3 +140,6 @@ function addIntern() {
     });
 }
 
+function finishTeamBuilding() {
+    
+}
