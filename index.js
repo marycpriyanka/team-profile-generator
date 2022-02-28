@@ -143,14 +143,15 @@ function addIntern() {
     });
 }
 
+// Generates the HTML file
 function finishTeamBuilding() {
     const htmlText = generateHtmlContent();
 
     fs.writeFile("./dist/index.html", htmlText, err =>
         err ? console.log(err) : console.log("Successfully created webpage containing team info!"));
-    console.log(manager.name, manager.officeNumber);
 }
 
+// Generates the HTML content based on user input
 const generateHtmlContent = () => {
     let htmlText = `<!DOCTYPE html>
 <html lang="en">
@@ -177,12 +178,13 @@ const generateHtmlContent = () => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item m-2">ID: ${manager.getId()}</li>
-                    <li class="list-group-item m-2">Email: <a href="#" class="card-link">${manager.getEmail()}</a></li>
-                    <li class="list-group-item m-2">Office number: <a href="#" class="card-link">${manager.officeNumber}</a></li>
+                    <li class="list-group-item m-2">Email: <a href="mailto:${manager.getEmail()}" class="card-link">${manager.getEmail()}</a></li>
+                    <li class="list-group-item m-2">Office number: ${manager.officeNumber}</li>
                 </ul>
             </div>
             `
 
+    // Adds the HTML content for all engineers
     for (const engineer of engineers) {
         htmlText = htmlText.concat(
             `<div class="card p-0 m-3 border border-success shadow" style="width: 18rem;">
@@ -192,13 +194,14 @@ const generateHtmlContent = () => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item m-2">ID: ${engineer.getId()}</li>
-                    <li class="list-group-item m-2">Email: <a href="#" class="card-link">${engineer.getEmail()}</a></li>
+                    <li class="list-group-item m-2">Email: <a href="mailto:${engineer.getEmail()}" class="card-link">${engineer.getEmail()}</a></li>
                     <li class="list-group-item m-2">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" class="card-link">${engineer.getGithub()}</a></li>
                 </ul>
             </div>
             `);
     }
 
+    // Adds HTML content for interns
     for (const intern of interns) {
         htmlText = htmlText.concat(
             `<div class="card p-0 m-3 border border-success shadow" style="width: 18rem;">
@@ -208,13 +211,14 @@ const generateHtmlContent = () => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item m-2">ID: ${intern.getId()}</li>
-                    <li class="list-group-item m-2">Email: <a href="#" class="card-link">${intern.getEmail()}</a></li>
-                    <li class="list-group-item m-2">School: <a href="#" class="card-link">${intern.getSchool()}</a></li>
+                    <li class="list-group-item m-2">Email: <a href="mailto:${intern.getEmail()}" class="card-link">${intern.getEmail()}</a></li>
+                    <li class="list-group-item m-2">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
             `);
     }
 
+    // Adds the closing HTML content at the end of the file
     htmlText = htmlText.concat(`</section>
     </main>
 </body>
