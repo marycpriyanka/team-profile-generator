@@ -39,13 +39,13 @@ When you see the success message, look for the HTML page created inside the fold
 ![webpage](https://github.com/marycpriyanka/team-profile-generator/blob/main/screenshots/webpage.JPG)
 
 For more information on how to use this application, watch the video in this link:
-
+https://drive.google.com/file/d/1y_ZmXXcOFEmEZBw-T-kKSiohY0ybQ7Hq/view?usp=sharing
 
 ## Features
 
 - A command line application that prompts for team's basic information.
 - All user input  is validated to ensure they are in the proper format.
-- When user finishes building the team, a HTML file is generated that displays a nicely formatted team roster.
+- When user/manager finishes building the team, a HTML file is generated that displays a nicely formatted team roster.
 - When an email address on the webpage is clicked, then the user's default email program opens and populates the TO field of the email with the address.
 - When GitHub username on the webpage is clicked, then that GitHub profile opens in a new tab.
 - The generated webpage is user device responsive.
