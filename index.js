@@ -7,7 +7,6 @@ const fs = require("fs");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const Employee = require("./lib/employee");
 
 // Holds the manager object
 let manager;
@@ -23,7 +22,7 @@ inquirer.prompt([
         type: "input",
         name: "managerName",
         validate: (answer) => {
-            if(answer !== "") {
+            if (answer !== "") {
                 return true;
             }
             else {
@@ -36,12 +35,12 @@ inquirer.prompt([
         type: "input",
         name: "id",
         validate: (answer) => {
-            const empID = answer.match(/^[1-9]\d*$/);
-            if (empID) {
+            const isID = answer.match(/^[1-9]\d*$/);
+            if (isID) {
                 return true;
             }
             else {
-                return "Please enter a positive number as employee ID."
+                return "Please enter a positive number as employee ID.";
             }
         }
     },
@@ -55,14 +54,23 @@ inquirer.prompt([
                 return true;
             }
             else {
-                return "Please enter a valid email address."
+                return "Please enter a valid email address.";
             }
         }
     },
     {
         message: "Enter manager's office number",
-        type: "number",
-        name: "phoneNumber"
+        type: "input",
+        name: "phoneNumber",
+        validate: (answer) => {
+            const isNumber = answer.match(/^[1-9]\d*$/);
+            if (isNumber) {
+                return true;
+            }
+            else {
+                return "Please enter only numbers for office number.";
+            }
+        }
     },
     {
         message: "Do you want to add engineer, or intern, or finish building your team?",
@@ -101,22 +109,56 @@ function addEngineer() {
         {
             message: "Enter engineer name.",
             type: "input",
-            name: "engineerName"
+            name: "engineerName",
+            validate: (answer) => {
+                if (answer !== "") {
+                    return true;
+                }
+                else {
+                    return "Please enter engineer name";
+                }
+            }
         },
         {
             message: "Enter engineer id.",
-            type: "number",
-            name: "id"
+            type: "input",
+            name: "id",
+            validate: (answer) => {
+                const isID = answer.match(/^[1-9]\d*$/);
+                if (isID) {
+                    return true;
+                }
+                else {
+                    return "Please enter a positive number as employee ID.";
+                }
+            }
         },
         {
             message: "Enter engineer email id.",
             type: "input",
-            name: "email"
+            name: "email",
+            validate: (answer) => {
+                const isEmail = answer.match(/\S+@\S+\.\S+/);
+                if (isEmail) {
+                    return true;
+                }
+                else {
+                    return "Please enter a valid email address.";
+                }
+            }
         },
         {
             message: "Enter engineer's Github username.",
             type: "input",
-            name: "github"
+            name: "github",
+            validate: (answer) => {
+                if (answer !== "") {
+                    return true;
+                }
+                else {
+                    return "Please enter Github username";
+                }
+            }
         },
         {
             message: "Do you want to add an engineer, or an intern, or finish building your team?",
@@ -138,22 +180,56 @@ function addIntern() {
         {
             message: "Enter intern name.",
             type: "input",
-            name: "internName"
+            name: "internName",
+            validate: (answer) => {
+                if (answer !== "") {
+                    return true;
+                }
+                else {
+                    return "Please enter intern name";
+                }
+            }
         },
         {
             message: "Enter intern id.",
-            type: "number",
-            name: "id"
+            type: "input",
+            name: "id",
+            validate: (answer) => {
+                const isID = answer.match(/^[1-9]\d*$/);
+                if (isID) {
+                    return true;
+                }
+                else {
+                    return "Please enter a positive number as employee ID.";
+                }
+            }
         },
         {
             message: "Enter intern email id.",
             type: "input",
-            name: "email"
+            name: "email",
+            validate: (answer) => {
+                const isEmail = answer.match(/\S+@\S+\.\S+/);
+                if (isEmail) {
+                    return true;
+                }
+                else {
+                    return "Please enter a valid email address.";
+                }
+            }
         },
         {
             message: "Enter intern's school.",
             type: "input",
-            name: "school"
+            name: "school",
+            validate: (answer) => {
+                if (answer !== "") {
+                    return true;
+                }
+                else {
+                    return "Please enter school name";
+                }
+            }
         },
         {
             message: "Do you want to add an engineer, or an intern, or finish building your team?",
