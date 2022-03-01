@@ -19,4 +19,30 @@ describe("Engineer", () => {
             expect(engineer.github).toEqual(github);
         });
     });
+
+    describe("getGithub()", () => {
+        it("should return the Github username of the engineer", () => {
+            // Arrange
+            const engineer = new Engineer("Tom", 1, "tom@gmail.com", "tom");
+
+            // Act
+            const github = engineer.getGithub();
+
+            // Assert
+            expect(github).toEqual("tom");
+        });
+    });
+
+    describe("getRole()", () => {
+        it("should return 'Engineer' when getRole() is called on an engineer", () => {
+            // Arrange
+            const engineer = new Engineer("Tom", 1, "tom@gmail.com", "tom");
+
+            // Act 
+            const role = engineer.getRole();
+
+            // Assert
+            expect(role).toEqual("Engineer");
+        })
+    })
 });
