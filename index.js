@@ -21,17 +21,43 @@ inquirer.prompt([
     {
         message: "Enter team manager's name.",
         type: "input",
-        name: "managerName"
+        name: "managerName",
+        validate: (answer) => {
+            if(answer !== "") {
+                return true;
+            }
+            else {
+                return "Please enter manager name";
+            }
+        }
     },
     {
         message: "Enter manager's employee id.",
-        type: "number",
-        name: "id"
+        type: "input",
+        name: "id",
+        validate: (answer) => {
+            const empID = answer.match(/^[1-9]\d*$/);
+            if (empID) {
+                return true;
+            }
+            else {
+                return "Please enter a positive number as employee ID."
+            }
+        }
     },
     {
         message: "Enter manager's email address.",
         type: "input",
-        name: "email"
+        name: "email",
+        validate: (answer) => {
+            const isEmail = answer.match(/\S+@\S+\.\S+/);
+            if (isEmail) {
+                return true;
+            }
+            else {
+                return "Please enter a valid email address."
+            }
+        }
     },
     {
         message: "Enter manager's office number",

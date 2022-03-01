@@ -20,5 +20,29 @@ describe("Intern", () => {
         });
     });
 
-    
+    describe("getSchool()", () => {
+        it("should return the school of the intern", () => {
+            // Arrange
+            const intern = new Intern("Tom", 1, "tom@gmail.com", "University of Washington");
+
+            // Act
+            const school = intern.getSchool();
+
+            // Assert
+            expect(school).toEqual("University of Washington");
+        });
+    });
+
+    describe("getRole()", () => {
+        it("should return 'Intern'", () => {
+            // Arrange
+            const intern = new Intern("Tom", 1, "tom@gmail.com", "University of Washington");
+
+            // Act
+            const role = intern.getRole();
+
+            // Assert
+            expect(role).toEqual("Intern");
+        });
+    });
 });
