@@ -49,7 +49,7 @@ Contributions and ideas are welcome. Before submitting an issue, please take a m
 
 ## Tests
 
-Uses the Jest package. There are 4 suite of unit tests currently. The tests could be run by using 'npm test' in command line.
+Uses the Jest package. There are 4 suite of unit tests currently. The tests could be run by typing 'npm test' in command line.
 
 ## Questions
 
